@@ -1,4 +1,10 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+
+import { filter } from 'rxjs/operators';
+
+import { AuthService } from './services/auth.service';
+
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
@@ -6,13 +12,35 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   public appPages = [
-    { title: 'Inbox', url: '/folder/Inbox', icon: 'mail' },
-    { title: 'Outbox', url: '/folder/Outbox', icon: 'paper-plane' },
-    { title: 'Favorites', url: '/folder/Favorites', icon: 'heart' },
-    { title: 'Archived', url: '/folder/Archived', icon: 'archive' },
-    { title: 'Trash', url: '/folder/Trash', icon: 'trash' },
-    { title: 'Spam', url: '/folder/Spam', icon: 'warning' },
+    { title: 'Home', url: '/home', icon: 'home' },
+    { title: 'Benevit', url: '/perfil', icon: 'archive' },
+    { title: 'Chat', url: '/chat', icon: 'paper-plane' },
+    { title: 'Foro', url: '/foro', icon: 'heart' },
+    { title: 'Register', url: '/register', icon: 'book' },
+    { title: 'Login', url: '/login', icon: 'log-in' },
   ];
   public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
-  constructor() {}
+  user$ = this.auth.authState$.pipe(
+    filter(state => state ? true : false)
+  );
+
+  constructor(
+    private auth: AuthService,
+    private router: Router
+  ) {}
+
+  async logout(){
+    await this.auth.logout();
+    this.router.navigate(['/login']);
+  }
+
+  toggleTheme() {
+    const appElement = document.querySelector('ion-app');
+    const elementClasses = appElement.classList;
+    if (elementClasses.contains('dark-theme')) {
+      elementClasses.remove('dark-theme');
+    } else {
+      elementClasses.add('dark-theme');
+    }
+  }
 }

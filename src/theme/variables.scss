@@ -68,12 +68,20 @@
   --ion-color-medium-tint: #9d9fa6;
 
   /** light **/
-  --ion-color-light: #f4f5f8;
+  --ion-color-light: #0f94ed;
   --ion-color-light-rgb: 244, 245, 248;
   --ion-color-light-contrast: #000000;
   --ion-color-light-contrast-rgb: 0, 0, 0;
   --ion-color-light-shade: #d7d8da;
   --ion-color-light-tint: #f5f6f9;
+
+  /**mycolor **/
+  --ion-color-mycolor: #EC5056;
+  --ion-color-mycolor-rgb: 4, 159, 170;
+  --ion-color-mycolor-contrast: #ffffff;
+  --ion-color-mycolor-contrast-rgb: 255, 255, 255;
+  --ion-color-mycolor-shade: #048c96;
+  --ion-color-mycolor-tint: #1da9b3;
 }
 
 @media (prefers-color-scheme: dark) {
