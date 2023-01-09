@@ -38,6 +38,7 @@ export class LoginPage implements OnInit {
       });
     } else {
       this.form.markAllAsTouched();
+      alert('Usuario y Contraseña Incorrectas');
     }
   }
 }

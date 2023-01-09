@@ -36,6 +36,12 @@ const routes: Routes = [
     path: 'launchscreen',
     loadChildren: () => import('./launchscreen/launchscreen.module').then( m => m.LaunchscreenPageModule),
   },
+  {
+    path: 'benevit',
+    canActivate: [ AuthGuard],
+    data: { authGuardPipe : redirectUnauthorizedToLogin},
+    loadChildren: () => import('./benevit/benevit.module').then( m => m.BenevitPageModule)
+  },
 ];
 
 @NgModule({

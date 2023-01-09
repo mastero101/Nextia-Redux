@@ -13,9 +13,7 @@ import { AuthService } from './services/auth.service';
 export class AppComponent {
   public appPages = [
     { title: 'Home', url: '/home', icon: 'home' },
-    { title: 'Benevit', url: '/perfil', icon: 'archive' },
-    { title: 'Chat', url: '/chat', icon: 'paper-plane' },
-    { title: 'Foro', url: '/foro', icon: 'heart' },
+    { title: 'Benevit', url: '/benevit', icon: 'archive' },
     { title: 'Register', url: '/register', icon: 'book' },
     { title: 'Login', url: '/login', icon: 'log-in' },
   ];
