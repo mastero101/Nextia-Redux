@@ -3,12 +3,28 @@
 }
 
 .logo {
-    display: block;
     max-width: 70%;
     max-height: 70%;
-    padding-left: 30%;
+    padding-left: 20%;
+    @media screen and (max-width:480px){
+        padding-left: 0%;
+    }
 }
 
 ion-slide {
    max-height: fit-content;
+}
+
+ion-toolbar{
+    background-color: var(--ion-color-mycolor);
+}
+
+ion-title {
+    padding-left: 35%; 
+    color: aliceblue;
+}
+
+img {
+    border-radius: 40px;
+    width: 40%;
 }

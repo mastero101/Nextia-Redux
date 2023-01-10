@@ -8,3 +8,11 @@ ion-toolbar{
     text-align: center;
     font-size:x-large;
 }
+
+ion-title {
+    color: aliceblue;
+    padding-left: 35%;
+    @media screen and (max-width:480){
+        padding-left: -20%;
+    }
+}

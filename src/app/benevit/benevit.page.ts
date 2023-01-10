@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-benevit',
@@ -11,5 +12,4 @@ export class BenevitPage implements OnInit {
 
   ngOnInit() {
   }
-
 }
