@@ -8,12 +8,15 @@ import { BenevitPageRoutingModule } from './benevit-routing.module';
 
 import { BenevitPage } from './benevit.page';
 
+import {HttpClientModule} from '@angular/common/http';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    BenevitPageRoutingModule
+    BenevitPageRoutingModule,
+    HttpClientModule,
   ],
   declarations: [BenevitPage]
 })
