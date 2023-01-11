@@ -27,4 +27,8 @@ ion-title {
 img {
     border-radius: 40px;
     width: 40%;
+    display: flex;
+    align-items: center;
+    max-width: 100%;
+    max-height: 200px;
 }

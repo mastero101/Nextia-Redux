@@ -12,22 +12,13 @@
   <h1 class="titles">Waifus</h1>
   <ion-slides>
     <ion-slide>
-      <img [src]="imageUrl7" *ngIf="imageUrl">
+      <img [src]="imageUrls[6]" *ngIf="imageUrls[6]">
     </ion-slide>
     <ion-slide>
-      <img [src]="imageUrl8" *ngIf="imageUrl">
+      <img [src]="imageUrls[7]" *ngIf="imageUrls[7]">
     </ion-slide>
     <ion-slide>
-      <img [src]="imageUrl9" *ngIf="imageUrl">
-    </ion-slide>
-    <ion-slide>
-      <img src="../../assets/icon/3.jpg" alt="">
-    </ion-slide>
-    <ion-slide>
-      <img src="../../assets/icon/2.jpg" alt="">
-    </ion-slide>
-    <ion-slide>
-      <img src="../../assets/icon/1.jpg" alt="">
+      <img [src]="imageUrls[8]" *ngIf="imageUrls[8]">
     </ion-slide>
   </ion-slides>
 </ion-content>
@@ -36,28 +27,24 @@
   <h1 class="titles">Waifus</h1>
   <ion-slides>
     <ion-slide>
-      <img [src]="imageUrl4" *ngIf="imageUrl">
+      <img [src]="imageUrls[3]" *ngIf="imageUrls[3]">
     </ion-slide>
     <ion-slide>
-      <img [src]="imageUrl5" *ngIf="imageUrl">
+      <img [src]="imageUrls[4]" *ngIf="imageUrls[4]">
     </ion-slide>
     <ion-slide>
-      <img [src]="imageUrl6" *ngIf="imageUrl">
+      <img [src]="imageUrls[5]" *ngIf="imageUrls[5]">
     </ion-slide>
   </ion-slides>
 </ion-content>
 
 <ion-content>
-  <h1 class="titles">Waifus</h1>
+  <h1 class="titles">Waifus I</h1>
   <ion-slides>
-    <ion-slide>
+    <ion-slide *ngFor="let imageUrl of imageUrls">
       <img [src]="imageUrl" *ngIf="imageUrl">
     </ion-slide>
-    <ion-slide>
-      <img [src]="imageUrl2" *ngIf="imageUrl">
-    </ion-slide>
-    <ion-slide>
-      <img [src]="imageUrl3" *ngIf="imageUrl">
-    </ion-slide>
   </ion-slides>
+  <ion-infinite-scroll (ionInfinite)="loadMoreImages($event)" *ngIf="hasMoreImages">
+  </ion-infinite-scroll>
 </ion-content>

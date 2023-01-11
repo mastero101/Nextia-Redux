@@ -2,130 +2,41 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
-  selector: 'app-benevit',
-  templateUrl: './benevit.page.html',
-  styleUrls: ['./benevit.page.scss'],
+  selector: 'app-benevit', // Este es el selector CSS para este componente
+  templateUrl: './benevit.page.html', // La ruta del template HTML para este componente
+  styleUrls: ['./benevit.page.scss'], // La ruta(s) de los estilos SCSS para este componente
 })
 export class BenevitPage implements OnInit {
-  imageUrl = '';
-  imageUrl2 = '';
-  imageUrl3 = '';
-  imageUrl4 = '';
-  imageUrl5 = '';
-  imageUrl6 = '';
-  imageUrl7 = '';
-  imageUrl8 = '';
-  imageUrl9 = '';
+  imageUrls = [
+    '', '', '', '', '', '', '', '', '', '','','', '', '', '', '', '', '',
+  ]; // Este arreglo contiene las URLs de las imágenes
+  hasMoreImages = true; // Esta bandera indica si hay más imágenes para cargar
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) { } // Inyecta una instancia de HttpClient para hacer solicitudes HTTP
 
   ngOnInit() {
-    this.getImage();
-    this.getImage2();
-    this.getImage3();
-    this.getImage4();
-    this.getImage5();
-    this.getImage6();
-    this.getImage7();
-    this.getImage8();
-    this.getImage9();
-   }
+    this.imageUrls.forEach((imageUrl, index) => {
+        this.getImage(imageUrl, index); // Para cada URL de imagen, llama a la función getImage
+    });
+  }
 
-  getImage() {
+  getImage(_imageUrl: string, index: number) {
     this.http.get(
-      'https://api.waifu.pics/sfw/waifu',
-      { responseType: 'text' })
+      'https://api.waifu.pics/sfw/waifu', // La URL para hacer la solicitud GET
+      { responseType: 'text' }) // Las opciones para la solicitud GET
       .subscribe(data => {
-        const imageData = JSON.parse(data);
-        const base64data = imageData.url;
-        this.imageUrl = base64data;
+        const imageData = JSON.parse(data); // Analiza los datos de respuesta como JSON
+        const base64data = imageData.url; // Obtiene la URL de la imagen desde los datos JSON analizados
+        this.imageUrls[index] = base64data; // Actualiza el índice correspondiente en el arreglo imageUrls
       });
   }
 
-  getImage2() {
-    this.http.get(
-      'https://api.waifu.pics/sfw/waifu',
-      { responseType: 'text' })
-      .subscribe(data => {
-        const imageData = JSON.parse(data);
-        const base64data = imageData.url;
-        this.imageUrl2 = base64data;
-      });
-  }
-  getImage3() {
-    this.http.get(
-      'https://api.waifu.pics/sfw/waifu',
-      { responseType: 'text' })
-      .subscribe(data => {
-        const imageData = JSON.parse(data);
-        const base64data = imageData.url;
-        this.imageUrl3 = base64data;
-      });
-  }
-
-  getImage4() {
-    this.http.get(
-      'https://api.waifu.pics/sfw/waifu',
-      { responseType: 'text' })
-      .subscribe(data => {
-        const imageData = JSON.parse(data);
-        const base64data = imageData.url;
-        this.imageUrl4 = base64data;
-      });
-  }
-
-  getImage5() {
-    this.http.get(
-      'https://api.waifu.pics/sfw/waifu',
-      { responseType: 'text' })
-      .subscribe(data => {
-        const imageData = JSON.parse(data);
-        const base64data = imageData.url;
-        this.imageUrl5 = base64data;
-      });
-  }
-
-  getImage6() {
-    this.http.get(
-      'https://api.waifu.pics/sfw/waifu',
-      { responseType: 'text' })
-      .subscribe(data => {
-        const imageData = JSON.parse(data);
-        const base64data = imageData.url;
-        this.imageUrl6 = base64data;
-      });
-  }
-
-  getImage7() {
-    this.http.get(
-      'https://api.waifu.pics/sfw/waifu',
-      { responseType: 'text' })
-      .subscribe(data => {
-        const imageData = JSON.parse(data);
-        const base64data = imageData.url;
-        this.imageUrl7 = base64data;
-      });
-  }
-
-  getImage8() {
-    this.http.get(
-      'https://api.waifu.pics/sfw/waifu',
-      { responseType: 'text' })
-      .subscribe(data => {
-        const imageData = JSON.parse(data);
-        const base64data = imageData.url;
-        this.imageUrl8 = base64data;
-      });
-  }
-
-  getImage9() {
-    this.http.get(
-      'https://api.waifu.pics/sfw/waifu',
-      { responseType: 'text' })
-      .subscribe(data => {
-        const imageData = JSON.parse(data);
-        const base64data = imageData.url;
-        this.imageUrl9 = base64data;
-      });
-  }
-}
+  loadMoreImages(event) {
+    if (this.hasMoreImages) {
+        this.imageUrls.forEach((imageUrl, index) => {
+            this.getImage(imageUrl, index); // Llamar a la función getImage para cada URL de imagen
+        });
+    } else {
+        event.target.complete(); // Si no hay más imágenes, completa el evento
+    }
+}}
