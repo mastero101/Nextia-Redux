@@ -10,6 +10,7 @@
 
 <ion-content>
   <h1 class="titles">Waifus</h1>
+  <ion-card>
   <ion-slides>
     <ion-slide>
       <img [src]="imageUrls[6]" *ngIf="imageUrls[6]">
@@ -21,10 +22,12 @@
       <img [src]="imageUrls[8]" *ngIf="imageUrls[8]">
     </ion-slide>
   </ion-slides>
+  </ion-card>
 </ion-content>
 
 <ion-content>
   <h1 class="titles">Waifus</h1>
+  <ion-card>
   <ion-slides>
     <ion-slide>
       <img [src]="imageUrls[3]" *ngIf="imageUrls[3]">
@@ -36,10 +39,12 @@
       <img [src]="imageUrls[5]" *ngIf="imageUrls[5]">
     </ion-slide>
   </ion-slides>
+  </ion-card>
 </ion-content>
 
 <ion-content>
   <h1 class="titles">Waifus I</h1>
+  <ion-card>
   <ion-slides>
     <ion-slide *ngFor="let imageUrl of imageUrls">
       <img [src]="imageUrl" *ngIf="imageUrl">
@@ -47,4 +52,5 @@
   </ion-slides>
   <ion-infinite-scroll (ionInfinite)="loadMoreImages($event)" *ngIf="hasMoreImages">
   </ion-infinite-scroll>
+  </ion-card>
 </ion-content>
