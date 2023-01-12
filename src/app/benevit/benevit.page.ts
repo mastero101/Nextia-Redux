@@ -9,7 +9,7 @@ import { HttpClient } from '@angular/common/http';
 export class BenevitPage implements OnInit {
   imageUrls = [
     '', '', '', '', '', '', '', '', '', '','','', '', '', '', '', '', '',
-  ]; // Este arreglo contiene las URLs de las imágenes
+  ]; // Este arreglo contiene las URLs de las imágenes (18x)
   hasMoreImages = true; // Esta bandera indica si hay más imágenes para cargar
 
   constructor(private http: HttpClient) { } // Inyecta una instancia de HttpClient para hacer solicitudes HTTP
